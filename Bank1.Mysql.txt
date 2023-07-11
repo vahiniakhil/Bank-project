@@ -1,0 +1,46 @@
+create database Bank;
+use Bank;
+create table employee(id int, Name varchar(10),salary int,branch_name Varchar(20) not null,branch_id varchar(20) primary key,email_id varchar(20));
+insert into employee values(100,"radha",10000,"coimbatore","CSE1","abc@gmail.com");
+insert into employee values(200,"madhu",11000,"chennai","CSE2","def@gmail.com");
+insert into employee values(300,"vahini",12000,"coimbatore","CSE3","ghi@gmail.com");
+insert into employee values(400,"Ravi",13000,"coimbatore","CSE14","jkl@gmail.com");
+insert into employee values(500,"kumar",14000,"kovai","CSE5","mno@gmail.com");
+insert into employee values(600,"vijay",15000,"coimbatore","CSE6","pqr@gmail.com");
+insert into employee values(700,"salini",14000,"bangalore","CSE7","stu@gmail.com");
+insert into employee values(800,"siva",10000,"coimbatore","CSE8","adf@gmail.com");
+insert into employee values(900,"shruthi",13000,"karur","CSE9","gvb@gmail.com");
+insert into employee values(1000,"chithra",16000,"madurai","CSE10","bhu@gmail.com");
+select*from employee order by name;
+select*from employee;
+
+create table customer(cus_accNo int not null,
+cus_pin int,
+cus_name varchar(20) not null,
+balance_amount int,
+cus_phoneno varchar(30),
+branch_id varchar(50));
+
+insert into customer values(12345,1111,"Akhil",10000,"2341584321","CSE1");
+insert into customer values(12945,1211,"Anil",10500,"2361584321","CSE9");
+insert into customer values(15345,1511,"Latha",13000,"2341565321","CSE10");
+insert into customer values(12399,1133,"aniruth",15900,"2342284321","CSE3");
+insert into customer values(19345,1611,"raja",16000,"2341533321","CSE6");
+insert into customer values(17345,1181,"rani",10600,"2341589421","CSE9");
+insert into customer values(14345,1331,"mithra",10800,"2341584398","CSE3");
+insert into customer values(12385,1991,"sarath",19000,"2341584451","CSE5");
+insert into customer values(16345,1011,"kayal",10450,"2341587521","CSE4");
+insert into customer values(12745,4331,"iniya",10700,"2341584381","CSE7");
+insert into customer values(19745,0331,"iniyaa",10780,"2341884381","CSE8");
+insert into customer values(17745,4031,"iniyan",10770,"2341504381","CSE5");
+insert into customer values(12745,4331,"muruga",10400,"2041584381","CSE2");
+insert into customer values(12741,4331,"lalli",14700,"23409584381","CSE1");
+insert into customer values(12645,4431,"kavya",17700,"2343584381","CSE6");
+
+select*from customer order by cus_name;
+select*from customer;
+
+use Bank;
+select customer.cus_accNo,customer.cus_Name,customer.balance_amount,customer.cus_phoneNo,customer.branch_id,employee.id,employee.Name,employee.branch_name,employee.branch_id,employee.email_id from customer
+ inner join employee on employee.branch_id-customer.branch_id;
+ select*from customer order by branch_id
